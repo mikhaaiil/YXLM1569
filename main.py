@@ -3,7 +3,7 @@ import os
 os.system('cls||clear')
 import time
 import random
-from art import text2art
+""" from art import text2art
 from rich.console import Console
 from rich.align import Align
 from rich.text import Text
@@ -12,7 +12,8 @@ from rich.console import Console
 console = Console(width=os.get_terminal_size().columns)
 from rich.live import Live
 from rich.table import Table
-name = text2art("WELCOME", font="cybermedium") # + text2art("PROGRAMM", font="cybermedium")
+name = text2art("WELCOME", font="cybermedium") # + text2art("PROGRAMM", font="cybermedium") """
+
 user = ""
 
 COLORS = {
@@ -114,10 +115,7 @@ def print_with_random_delay(lines, min_char_delay=0.01, max_char_delay=0.06, min
 # print_with_random_delay(loading_lines)
 # wait_for_keypress()
 
-with console.screen(style="bold blue") as screen:
-    text = Align.center(Text.from_markup(name + (user := input("Enter user >> ")), justify="center"), vertical="middle")
-    screen.update(Panel(text))
-    time.sleep(5)
+user = input("Input name the user()")
 
 command = ""
 while (command := input(f'{user}:>> ')) != "exit":
