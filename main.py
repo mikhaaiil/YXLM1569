@@ -112,8 +112,8 @@ def print_with_random_delay(lines, min_char_delay=0.01, max_char_delay=0.06, min
         print()
         time.sleep(random.uniform(min_line_delay, max_line_delay))
 
-# print_with_random_delay(loading_lines)
-# wait_for_keypress()
+print_with_random_delay(loading_lines)
+wait_for_keypress()
 
 user = input("Input name the user()")
 
