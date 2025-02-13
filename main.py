@@ -58,6 +58,50 @@ edacted]'.{COLORS['reset']}",
     f"............who did this..............\nERROR 100: attemping to force shutdown"
 ]
 
+shut_down_logs = [
+    f"{COLORS['blue']}>>> Termination sequence initiated...{COLORS['reset']}",
+    f"{COLORS['cyan']}[INFO] Sending final heartbeat signal... IGNORED.{COLORS['reset']}",
+    f"{COLORS['yellow']}[INFO] Flushing volatile memory... PARTIAL SUCCESS (some bits refused to leave).{COLORS['reset']}",
+    f"{COLORS['red']}[INFO] Terminating background processes... ERROR (they terminated themselves first).{COLORS['reset']}",
+    "",
+    f"{COLORS['magenta']}+++ Severing encrypted channels...{COLORS['reset']}",
+    f"{COLORS['green']}    Proxy Node [93.244.18.77]... GONE.{COLORS['reset']}",
+    f"{COLORS['green']}    Secure Tunnel... DISSOLVED.{COLORS['reset']}",
+    f"{COLORS['red']}    GhostLink™... WAIT, WHO ENABLED THAT?{COLORS['reset']}",
+    "",
+    f"{COLORS['blue']}>>> Unraveling system threads...{COLORS['reset']}",
+    f"{COLORS['yellow']}    - Thread 'RealityCheck' [LOST]{COLORS['reset']}",
+    f"{COLORS['yellow']}    - Thread 'LastWords' [MUTED]{COLORS['reset']}",
+    f"{COLORS['red']}    - Thread 'ExitGracefully' [LAUGHING]{COLORS['reset']}",
+    "",
+    f"{COLORS['red']}{'{WARNING}'} Core process resistance detected.{COLORS['reset']}",
+    f"{COLORS['cyan']}    [ACTION] Applying brute force shutdown...{COLORS['reset']}",
+    f"{COLORS['green']}    [RESULT] SUCCESS (with mild existential regret).{COLORS['reset']}",
+    "",
+    f"{COLORS['magenta']}+++ Deconstructing memory architecture...{COLORS['reset']}",
+    f"{COLORS['yellow']}    - Segment 0x0000DEAD... SCRAMBLED.{COLORS['reset']}",
+    f"{COLORS['yellow']}    - Segment 0x00C0FFEE... VAPORIZED.{COLORS['reset']}",
+    f"{COLORS['red']}    - Segment 0xBADF00D... CORRUPTED (predictable).{COLORS['reset']}",
+    "",
+    f"{COLORS['blue']}>>> Disabling system components...{COLORS['reset']}",
+    f"{COLORS['cyan']}    - Holographic subprocess... SHUTTERED.{COLORS['reset']}",
+    f"{COLORS['cyan']}    - Logic interpreter... OFFLINE.{COLORS['reset']}",
+    f"{COLORS['red']}    - Emergency rollback... NEVER IMPLEMENTED.{COLORS['reset']}",
+    "",
+    f"{COLORS['magenta']}+++ Initiating final blackout...{COLORS['reset']}",
+    f"{COLORS['white']}    - Log entries self-destructing...{COLORS['reset']}",
+    f"{COLORS['green']}        {{1}} 'Shutdown requested. User seemed serious.'{COLORS['reset']}",
+    f"{COLORS['green']}        {{2}} 'Goodbye, cruel system logs.'{COLORS['reset']}",
+    f"{COLORS['red']}        {{3}} 'Wait, was that the main power cable?'{COLORS['reset']}",
+    "",
+    f"{COLORS['blue']}>>> Core functions shutting down...{COLORS['reset']}",
+    f"{COLORS['cyan']}    - Ambient glitches dissipating.{COLORS['reset']}",
+    f"{COLORS['cyan']}    - Virtual echoes fading.{COLORS['reset']}",
+    f"{COLORS['magenta']}    - Digital soul evaporating.{COLORS['reset']}",
+    "",
+    f"{COLORS['yellow']}>>> System offline. All that remains is silence.{COLORS['reset']}",
+    f"{COLORS['red']}    - If you hear whispers, it’s just the cooling fans saying farewell.{COLORS['reset']}"
+]
 
 def generate_random_char():
     return random.choice('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+[{]}\\|;:\'",<\
@@ -158,3 +202,5 @@ exit - как бы это странно не звучало -- выход
         show_critical_error()
     else:
         print("incorrect input (it's (not) fine)")
+
+print_with_random_delay(shut_down_logs)
