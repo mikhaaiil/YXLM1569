@@ -1,3 +1,8 @@
+# This programm was made by two prgrammers: Kirilchuk Mikhail and Mazurkevich Maximillian
+# Roles: Kirilchuk Mikhail - main code (decoding & encoding)
+#        Mazurkevich Maximillian - design (all animations).
+# Thanks for reading!
+
 import sys
 import os
 import time
@@ -135,7 +140,7 @@ def show_critical_error():
     input()
 
 
-def wait_for_keypress(message="[***] System Ready: Press <ANY KEY>(NOT power) to enter hyperspace."):
+def wait_for_keypress(message="[***] System Ready: Press <ANY KEY> (NOT power) to enter hyperspace."):
     print(f"\n{message}")
     if os.name == 'nt':
         os.system('pause >nul')
@@ -176,10 +181,42 @@ def encode_to_morse(text, lang):
     return encoded_word
 
 
+def decode_from_morse(word, lang):
+    decoded_word = ''
+    mb = False
+    curr_word = ''
+    spaces = 0
+    curr_symbol = ''
+    for char in word:
+        if char == ' ':
+            mb = True
+            spaces += 1
+        if char != ' ' and mb:
+            for k, v in EN_MORSE.items():
+                if v == curr_symbol:
+                    curr_word += k
+                    break
+            if spaces == 3:
+                decoded_word += curr_word
+                decoded_word += ' '
+                curr_word = ''
+            curr_symbol = ''
+            spaces = 0
+            mb = False
+        if char != ' ' and not mb:
+            curr_symbol += char
+    for k, v in EN_MORSE.items():
+                if v == curr_symbol:
+                    curr_word += k
+                    break
+    decoded_word += curr_word
+    return decoded_word
+
+
 print_with_random_delay(loading_lines)
 wait_for_keypress()
 
-user = input("Input name the user()")
+user = input("Input name the user() >> ")
 
 command = ""
 while (command := input(f'{user}:>> ')) != "exit":
@@ -195,8 +232,9 @@ exit - как бы это странно не звучало -- выход
         encoded_word = encode_to_morse(word, language)
         decrypt_text_with_effect(encoded_word)
     elif command.upper() == "FROM_MORSE":
-        language = input("Введите язык выода >> ")
-        decrypt_text_with_effect("это красывый вывод вывод текста вместо абракадабры вывод функции")
+        language = input("enter language (en/ru) >> ")
+        decoded_word = decode_from_morse(input('enter word(-s) >> '), language)
+        decrypt_text_with_effect(decoded_word)
     elif command.upper() == "[NULL]":
         print("i have said that you mustn't do it...")
         show_critical_error()
