@@ -1,20 +1,9 @@
 import sys
 import os
-os.system('cls||clear')
 import time
 import random
-""" from art import text2art
-from rich.console import Console
-from rich.align import Align
-from rich.text import Text
-from rich.panel import Panel
-from rich.console import Console
-console = Console(width=os.get_terminal_size().columns)
-from rich.live import Live
-from rich.table import Table
-name = text2art("WELCOME", font="cybermedium") # + text2art("PROGRAMM", font="cybermedium") """
 
-user = ""
+os.system('cls||clear')
 
 COLORS = {
     "yellow": "\033[93m",
@@ -31,10 +20,12 @@ loading_lines = [
     f"{COLORS['yellow']}[LOADING] BIOS Extensions...{COLORS['reset']}",
     f"{COLORS['green']}{{OK}} Initializing Floppy Disk Controller...{COLORS['reset']}",
     f"{COLORS['cyan']}<~> Detecting ISA Peripherals...{COLORS['reset']}",
-    f"{COLORS['magenta']}[CRT] Checking for monitor signal {COLORS['white']}█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█{COLORS['reset']}",
+    f"{COLORS['magenta']}[CRT] Checking for monitor signal {COLORS['white']}\
+█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█{COLORS['reset']}",
     f"{COLORS['blue']}(-) Bootstrapping 16-bit Color Palette...{COLORS['reset']}",
     f"{COLORS['yellow']}[*] Synchronizing CPU Clock with Lunar Phase...{COLORS['reset']}",
-    f"{COLORS['red']}{{!}} Allocating 640 KB of Base Memory... {COLORS['yellow']}[WARNING: LOW LIMIT REACHED]{COLORS['reset']}",
+    f"{COLORS['red']}{{!}} Allocating 640 KB of Base Memory... {COLORS['yellow']}[WARNING: LOW LIMI\
+T REACHED]{COLORS['reset']}",
     f"{COLORS['cyan']}[///] Emulating Dial-Up Modem Handshake...{COLORS['reset']}",
     f"{COLORS['green']}<-> Parsing BBS Messages for Easter Eggs...{COLORS['reset']}",
     f"{COLORS['yellow']}[@] Scanning for Missing Floppies in Drive A...{COLORS['reset']}",
@@ -61,16 +52,19 @@ critical_error_lines = [
     f"{COLORS['red']}[FATAL] Unit 'N' reported missing. Searching... NO RESPONSE.{COLORS['reset']}",
     f"{COLORS['cyan']}[INFO] Core module 'Disassembly Protocol' activated by external signal.{COLORS['reset']}",
     f"{COLORS['magenta']}[LOG] Signal interference detected. Source: 'The Absolute Solver'.{COLORS['reset']}",
-    f"{COLORS['blue']}[ERROR] Attempting rollback... Error: Unauthorized access by user 'cyn[redacted]010000101[redacted]'.{COLORS['reset']}",
+    f"{COLORS['blue']}[ERROR] Attempting rollback... Error: Unauthorized access by user 'cyn[redacted]010000101[r\
+edacted]'.{COLORS['reset']}",
     f"{COLORS['cyan']}[INFO] The hamsters have left the wheel. Good luck.{COLORS['reset']}",
     f"............who did this..............\nERROR 100: attemping to force shutdown"
 ]
 
+
 def generate_random_char():
-    return random.choice('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+[{]}\\|;:\'",<.>/?ЙЦУКЕНГШЩЗХЪЭЖДЛОРПАВЫФЯЧСМИТЬБЮ.')
+    return random.choice('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+[{]}\\|;:\'",<\
+    .>/?ЙЦУКЕНГШЩЗХЪЭЖДЛОРПАВЫФЯЧСМИТЬБЮ.')
+
 
 def decrypt_text_with_effect(text):
-    # Генерируем абракадабру (случайный текст)
     garbled_text = ''.join([generate_random_char() for _ in range(len(text))])
     sys.stdout.write(garbled_text)
     sys.stdout.flush()
@@ -83,6 +77,7 @@ def decrypt_text_with_effect(text):
     sys.stdout.write("\n")
     sys.stdout.flush()
 
+
 def show_critical_error():
     global critical_error_lines
     print("\n" + COLORS['red'] + "[NULL DETECTED] SYSTEM CORE FALURE 'ABSS' isnt \n\
@@ -92,16 +87,18 @@ def show_critical_error():
     for line in critical_error_lines:
         print(line)
         time.sleep(random.uniform(0.03, 0.07))
-    print(f"\n{COLORS['yellow']}[!] Press any key to return to the void... or don’t. It’s (not)fine.{COLORS['reset']}")
+    print(f"\n{COLORS['yellow']}[!] Press any key to return to the void... or don’t. It’s (not) fine.{COLORS['reset']}")
     input()
+
 
 def wait_for_keypress(message="[***] System Ready: Press <ANY KEY>(NOT power) to enter hyperspace."):
     print(f"\n{message}")
     if os.name == 'nt':
-        os.system('pause >nul')  # Windows
+        os.system('pause >nul')
     else:
-        os.system('bash -c "read -n 1 -s"')  # Linux/macOS
+        os.system('bash -c "read -n 1 -s"')
     os.system('cls||clear')
+
 
 def print_with_random_delay(lines, min_char_delay=0.01, max_char_delay=0.06, min_line_delay=0.05, max_line_delay=0.09):
     for line in lines:
@@ -112,6 +109,29 @@ def print_with_random_delay(lines, min_char_delay=0.01, max_char_delay=0.06, min
         print()
         time.sleep(random.uniform(min_line_delay, max_line_delay))
 
+
+EN_MORSE = {'a': '•—', 'b': '—•••', 'c': '—•—•', 'd': '—••',
+            'e': '•', 'f': '••—•', 'g': '——•', 'h': '••••',
+            'i': '••', 'j': '•———', 'k': '—•—', 'l': '•—••',
+            'm': '——', 'n': '—•', 'o': '———', 'p': '•——•',
+            'q': '——•—', 'r': '•—•', 's': '•••', 't': '—',
+            'u': '••—', 'v': '•••—', 'w': '•——', 'x': '—••—',
+            'y': '—•——', 'z': '——••', '1': '•————', '2': '••———', '3': '•••——', '4': '••••—',
+            '5': '•••••', '6': '—••••', '7': '——•••', '8': '———••',
+            '9': '————•', '0': '—————'}
+
+
+def encode_to_morse(text, lang):
+    global EN_MORSE
+    encoded_word = ''
+    words = [i.lower() for i in text.split()]
+    for word in words:
+        if lang == 'en':
+            encoded_word += ' '.join([EN_MORSE[i] for i in word])
+        encoded_word += '   '
+    return encoded_word
+
+
 print_with_random_delay(loading_lines)
 wait_for_keypress()
 
@@ -119,21 +139,22 @@ user = input("Input name the user()")
 
 command = ""
 while (command := input(f'{user}:>> ')) != "exit":
-    if command == "help":
+    if command.lower() == "help":
         print("""Help - this text
 TO_MORSE - перевести в морзе
 FROM_MORSE - перевести из морзе
 exit - как бы это странно не звучало -- выход
 не вводите [NULL]""")
-    elif command == "TO_MORSE":
-        language = input("Введите язык ввода >> ")
-        decrypt_text_with_effect("это красывый вывод вывод текста вместо абракадабры вывод функции") # тут перевод в морзе 
-        """тут будет алгоритм"""
-    elif command == "FROM_MORSE":
-        language = input("Введите язык выода >> ")  
-        decrypt_text_with_effect("это красывый вывод вывод текста вместо абракадабры вывод функции") # а тот в норм язык
-    elif command == "[NULL]":
-        print("а я же говорил что не надо....")
+    elif command.upper() == "TO_MORSE":
+        language = input("enter language (en/ru) >> ")
+        word = input("enter word(-s) >> ")
+        encoded_word = encode_to_morse(word, language)
+        decrypt_text_with_effect(encoded_word)
+    elif command.upper() == "FROM_MORSE":
+        language = input("Введите язык выода >> ")
+        decrypt_text_with_effect("это красывый вывод вывод текста вместо абракадабры вывод функции")
+    elif command.upper() == "[NULL]":
+        print("i have said that you mustn't do it...")
         show_critical_error()
     else:
-        print("incorrect input(it's (not) fine)")
+        print("incorrect input (it's (not) fine)")
