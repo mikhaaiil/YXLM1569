@@ -60,14 +60,16 @@ critical_error_lines = [
     f"{COLORS['blue']}[ERROR] Attempting rollback... Error: Unauthorized access by user 'cyn[redacted]010000101[r\
 edacted]'.{COLORS['reset']}",
     f"{COLORS['cyan']}[INFO] The hamsters have left the wheel. Good luck.{COLORS['reset']}",
-    f"............who did this..............\nERROR 100: attemping to force shutdown"
+    "............who did this..............\nERROR 100: attemping to force shutdown"
 ]
 
 shut_down_logs = [
     f"{COLORS['blue']}>>> Termination sequence initiated...{COLORS['reset']}",
     f"{COLORS['cyan']}[INFO] Sending final heartbeat signal... IGNORED.{COLORS['reset']}",
-    f"{COLORS['yellow']}[INFO] Flushing volatile memory... PARTIAL SUCCESS (some bits refused to leave).{COLORS['reset']}",
-    f"{COLORS['red']}[INFO] Terminating background processes... ERROR (they terminated themselves first).{COLORS['reset']}",
+    f"{COLORS['yellow']}[INFO] Flushing volatile memory... PARTIAL SUCCESS (some bits refus\
+ed to leave).{COLORS['reset']}",
+    f"{COLORS['red']}[INFO] Terminating background processes... ERROR (they terminated themselves fi\
+rst).{COLORS['reset']}",
     "",
     f"{COLORS['magenta']}+++ Severing encrypted channels...{COLORS['reset']}",
     f"{COLORS['green']}    Proxy Node [93.244.18.77]... GONE.{COLORS['reset']}",
@@ -108,6 +110,7 @@ shut_down_logs = [
     f"{COLORS['red']}    - If you hear whispers, it’s just the cooling fans saying farewell.{COLORS['reset']}"
 ]
 
+
 def generate_random_char():
     return random.choice('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+[{]}\\|;:\'",<\
     .>/?ЙЦУКЕНГШЩЗХЪЭЖДЛОРПАВЫФЯЧСМИТЬБЮ.')
@@ -119,7 +122,7 @@ def decrypt_text_with_effect(text):
     sys.stdout.flush()
     time.sleep(1)
     for i in range(len(text)):
-        garbled_text = garbled_text[:i] + text[i] + garbled_text[i+1:]
+        garbled_text = garbled_text[:i] + text[i] + garbled_text[i + 1:]
         sys.stdout.write('\r' + garbled_text)
         sys.stdout.flush()
         time.sleep(0.1)
@@ -222,9 +225,9 @@ def decode_from_morse(word, lang):
         if char != ' ' and not mb:
             curr_symbol += char
     for k, v in MORSE_DICT.items():
-                if v == curr_symbol:
-                    curr_word += k
-                    break
+        if v == curr_symbol:
+            curr_word += k
+            break
     decoded_word += curr_word
     return decoded_word
 
