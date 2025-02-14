@@ -170,18 +170,34 @@ EN_MORSE = {'a': '•—', 'b': '—•••', 'c': '—•—•', 'd': '—�
             '9': '————•', '0': '—————'}
 
 
+RU_MORSE = {'а': '•—', 'б': '—•••', 'в': '•——', 'г': '——•', 'д': '—••', 'е': '•', 'ж': '•••—',
+            'з': '——••', 'и': '••', 'й': '•———', 'к': '—•—', 'л': '•—••', 'м': '——', 'н': '—•',
+            'о': '———', 'п': '•——•', 'р': '•—•', 'c': '•••', 'т': '—', 'у': '••—', 'ф': '••—•',
+            'х': '••••', 'ц': '—•—•', 'ч': '———•', 'ш': '————', 'щ': '——•—', 'ь': '—••—', 'ы': '—•——',
+            'э': '••—••', 'ю': '••——', 'я': '•—•—', '1': '•————', '2': '••———', '3': '•••——', '4': '••••—',
+            '5': '•••••', '6': '—••••', '7': '——•••', '8': '———••',
+            '9': '————•', '0': '—————'}
+
+
 def encode_to_morse(text, lang):
-    global EN_MORSE
+    global EN_MORSE, RU_MORSE
+    if lang == 'en':
+        MORSE_DICT = EN_MORSE
+    else:
+        MORSE_DICT = RU_MORSE
     encoded_word = ''
     words = [i.lower() for i in text.split()]
     for word in words:
-        if lang == 'en':
-            encoded_word += ' '.join([EN_MORSE[i] for i in word])
+        encoded_word += ' '.join([MORSE_DICT[i] for i in word])
         encoded_word += '   '
     return encoded_word
 
 
 def decode_from_morse(word, lang):
+    if lang == 'en':
+        MORSE_DICT = EN_MORSE
+    else:
+        MORSE_DICT = RU_MORSE
     decoded_word = ''
     mb = False
     curr_word = ''
@@ -192,7 +208,7 @@ def decode_from_morse(word, lang):
             mb = True
             spaces += 1
         if char != ' ' and mb:
-            for k, v in EN_MORSE.items():
+            for k, v in MORSE_DICT.items():
                 if v == curr_symbol:
                     curr_word += k
                     break
@@ -205,7 +221,7 @@ def decode_from_morse(word, lang):
             mb = False
         if char != ' ' and not mb:
             curr_symbol += char
-    for k, v in EN_MORSE.items():
+    for k, v in MORSE_DICT.items():
                 if v == curr_symbol:
                     curr_word += k
                     break
